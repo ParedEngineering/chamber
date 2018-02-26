@@ -21,11 +21,11 @@ const (
 
 // validPathKeyFormat is the format that is expected for key names inside parameter store
 // when using paths
-var validPathKeyFormat = regexp.MustCompile(`^\/[A-Za-z0-9-_]+\/[A-Za-z0-9-_/]+$`)
+var validPathKeyFormat = regexp.MustCompile(`^\/[A-Za-z0-9-_/]+$`)
 
 // validKeyFormat is the format that is expected for key names inside parameter store when
 // not using paths
-var validKeyFormat = regexp.MustCompile(`^[A-Za-z0-9-_]+\.[A-Za-z0-9-_.]+$`)
+var validKeyFormat = regexp.MustCompile(`^[A-Za-z0-9-_.]+$`)
 
 // ensure SSMStore confirms to Store interface
 var _ Store = &SSMStore{}
@@ -406,6 +406,7 @@ func (s *SSMStore) validateName(name string) bool {
 
 func basePath(key string) string {
 	pathParts := strings.Split(key, "/")
+	fmt.Print(pathParts)
 	if len(pathParts) == 1 {
 		return pathParts[0]
 	}

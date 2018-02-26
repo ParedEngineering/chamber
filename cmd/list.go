@@ -73,5 +73,6 @@ func key(s string) string {
 
 	tokens := strings.Split(s, sep)
 	secretKey := tokens[len(tokens)-1]
+    fmt.Print(tokens)
 	return secretKey
 }
