@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/pkg/errors"
-	"github.com/segmentio/chamber/store"
+	"github.com/ParedEngineering/chamber/store"
 	"github.com/spf13/cobra"
 )
 
